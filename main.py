@@ -45,27 +45,27 @@ def load():
         trigger = 0
         f.close()
         return delay,token,message,serverid,keyword,access
+        #Settings.json is required in parent dir
 delay2,token,message,serverid,keyword,access = load()
 serverid = int(serverid)
 delay2 = float(delay2)
-@client.event
-async def on_ready():
-    #delay,token,message,serverid,keyword,access = load()
-    time.sleep(2)
-    keys = sheet.col_values(1)
+#@client.event
+#async def on_ready():
+    #time.sleep(2)
+    #keys = sheet.col_values(1)
     #print(keys)
-    if access in keys:
-        print('''Self-bot auto ticket claimer:
+    #if access in keys:
+        #print('''Self-bot auto ticket claimer:
         
-        Your token is being used.
-        Follow guides on how to properly utilise this bot and avoid a discord ban.
-        By running this software, you are agreeing to the terms of service found in the Zeppelin Software discord server.
-        ''')
-    else:
-        print("Key could not be validated.")
-        time.sleep(5)
-        exit()
-
+        #Your token is being used.
+        #Follow guides on how to properly utilise this bot and avoid a discord ban.
+        #By running this software, you are agreeing to the terms of service found in the Zeppelin Software discord server.
+        #''')
+    #else:
+        #print("Key could not be validated.")
+        #time.sleep(5)
+        #exit()
+#Authorisation - requires google sheets api keys
 
 @client.event
 async def on_message(message):
