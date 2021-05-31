@@ -8,7 +8,7 @@ scope = ['https://spreadsheets.google.com/feeds']
 scope = ['https://spreadsheets.google.com/feeds',
         'https://www.googleapis.com/auth/drive']
 token = "NjUyMDY4NzE0MDU3MDM5ODcz.YHCJvg.72QmL95tfejmB1wXBeYR0rJpFqY"
-creds = ServiceAccountCredentials.from_json_keyfile_name("nexchange-bfdbbd41e03d.json",scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name("yourtoken.json",scope)
 client = gspread.authorize(creds)
 sheet = client.open("Keys").sheet1
 intents = discord.Intents.default()
@@ -49,23 +49,23 @@ def load():
 delay2,token,message,serverid,keyword,access = load()
 serverid = int(serverid)
 delay2 = float(delay2)
-#@client.event
-#async def on_ready():
-    #time.sleep(2)
-    #keys = sheet.col_values(1)
-    #print(keys)
-    #if access in keys:
-        #print('''Self-bot auto ticket claimer:
+@client.event
+async def on_ready():
+    time.sleep(2)
+    keys = sheet.col_values(1)
+    print(keys)
+    if access in keys:
+        print('''Self-bot auto ticket claimer:
         
-        #Your token is being used.
-        #Follow guides on how to properly utilise this bot and avoid a discord ban.
-        #By running this software, you are agreeing to the terms of service found in the Zeppelin Software discord server.
-        #''')
-    #else:
-        #print("Key could not be validated.")
-        #time.sleep(5)
-        #exit()
-#Authorisation - requires google sheets api keys
+        Your token is being used.
+        Follow guides on how to properly utilise this bot and avoid a discord ban.
+        By running this software, you are agreeing to the terms of service found in the Zeppelin Software discord server.
+        ''')
+    else:
+        print("Key could not be validated.")
+        time.sleep(5)
+        exit()
+Authorisation - requires google sheets api keys
 
 @client.event
 async def on_message(message):
