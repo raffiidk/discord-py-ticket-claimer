@@ -90,7 +90,7 @@ async def on_message(message):
                     "settings": [
                     {
                         "delay": "0",
-                        "token": "NjUyMDY4NzE0MDU3MDM5ODcz.YHCJvg.72QmL95tfejmB1wXBeYR0rJpFqY"
+                        "token": "a"
                     }
                 ]
             }
